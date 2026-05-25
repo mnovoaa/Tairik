@@ -470,15 +470,22 @@
       @media (min-width: 900px) {
         .hero-grid {
           grid-template-columns: 1.05fr 0.95fr;
-          gap: clamp(28px, 4vw, 56px);
+          grid-template-rows: auto auto;
+          gap: clamp(20px, 3vw, 32px) clamp(28px, 4vw, 56px);
           align-items: end;
         }
         .hero-meta {
-          order: 1;
+          grid-column: 1;
+          grid-row: 1;
           padding-bottom: 8px;
         }
         .hero-photo-col {
-          order: 2;
+          grid-column: 2;
+          grid-row: 1 / span 2;
+        }
+        .hero-cta {
+          grid-column: 1;
+          grid-row: 2;
         }
         .name {
           font-size: clamp(130px, 14vw, 220px);
@@ -1433,6 +1440,60 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* dots indicator (oculto por default; aparece solo en mobile) */
+      .vid-dots {
+        display: none;
+      }
+
+      /* MOBILE SLIDER (max-width: 767px) — desktop NO se toca */
+      @media (max-width: 767px) {
+        .vid-grid-3 {
+          display: flex;
+          flex-direction: row;
+          grid-template-columns: none;
+          overflow-x: auto;
+          overflow-y: visible;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          gap: 12px;
+          padding: 14px 6vw;
+          margin-inline: calc(-1 * var(--gutter));
+          align-items: stretch;
+        }
+        .vid-grid-3::-webkit-scrollbar {
+          display: none;
+        }
+        .vid-slot {
+          flex: 0 0 80vw;
+          max-width: 80vw;
+          scroll-snap-align: center;
+          scroll-snap-stop: always;
+        }
+        .vid-dots {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          padding-top: 14px;
+        }
+        .vid-dot {
+          width: 6px;
+          height: 6px;
+          padding: 0;
+          border: 0;
+          border-radius: 50%;
+          background: var(--ink-faint);
+          cursor: pointer;
+          transition: background 0.2s ease, width 0.2s ease, border-radius 0.2s ease;
+        }
+        .vid-dot.active {
+          background: var(--red);
+          width: 18px;
+          border-radius: 3px;
+        }
+      }
       .vid-slot {
         position: relative;
         border: 1px solid var(--line);
@@ -1701,17 +1762,6 @@
                   <span class="s">ShishiGang Records</span>
                 </div>
               </div>
-
-              <div class="hero-cta">
-                <a class="btn btn-primary" href="#booking">
-                  <span>RESERVAR COLABORACIÓN</span>
-                  <span class="arr">→</span>
-                </a>
-                <a class="btn btn-ghost" href="#formatos">
-                  <span>VER FORMATOS</span>
-                  <span class="arr">↓</span>
-                </a>
-              </div>
             </div>
 
             <div class="hero-photo-col">
@@ -1720,6 +1770,17 @@
                 <span class="photo-corner br" aria-hidden="true"></span>
                 <img src="assets/tairik-hero.jpg" alt="Retrato de Tairik (Maximiliano Román)" width="1000" height="1250" loading="eager" fetchpriority="high" decoding="async" />
               </div>
+            </div>
+
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#booking">
+                <span>RESERVAR COLABORACIÓN</span>
+                <span class="arr">→</span>
+              </a>
+              <a class="btn btn-ghost" href="#formatos">
+                <span>VER FORMATOS</span>
+                <span class="arr">↓</span>
+              </a>
             </div>
           </div>
         </div>
@@ -2459,15 +2520,6 @@
                 </a>
               </div>
 
-              <p class="linktree">
-                + todo en un sitio:
-                <a
-                  href="https://linktr.ee/t4irik"
-                  target="_blank"
-                  rel="noopener"
-                  >linktr.ee/t4irik</a
-                >
-              </p>
             </div>
           </div>
         </div>
@@ -2481,7 +2533,7 @@
       <div class="wrap">
         <div class="foot">
           <span>FIN DEL DOSIER · 06 / 06</span>
-          <span class="sig">SHISI.NEWS · MANAGED BY <b>SHOWUP</b></span>
+          <span class="sig">TAIRIK.CL · MANAGED BY <a href="https://www.showup.lat" target="_blank" rel="noopener"><b>SHOWUP</b></a></span>
           <span>© <span id="yr"></span> · TAIRIK</span>
         </div>
       </div>
@@ -2561,6 +2613,64 @@
           });
           video.addEventListener("ended", () => {
             frame.dataset.playing = "false";
+          });
+        });
+      })();
+
+      // §02 mobile slider — dots indicator + scroll sync
+      (function () {
+        document.querySelectorAll(".vid-grid-3").forEach((grid) => {
+          const cards = Array.from(grid.querySelectorAll(".vid-slot"));
+          if (cards.length < 2) return;
+
+          const dots = document.createElement("div");
+          dots.className = "vid-dots";
+          dots.setAttribute("role", "tablist");
+          dots.setAttribute("aria-label", "Navegación de videos");
+
+          cards.forEach((card, i) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "vid-dot" + (i === 0 ? " active" : "");
+            dot.setAttribute("aria-label", `Ir al video ${i + 1}`);
+            dot.addEventListener("click", () => {
+              card.scrollIntoView({
+                behavior: "smooth",
+                inline: "center",
+                block: "nearest",
+              });
+            });
+            dots.appendChild(dot);
+          });
+          grid.parentNode.insertBefore(dots, grid.nextSibling);
+
+          let raf = 0;
+          function update() {
+            // si el grid no está en modo scroll (desktop), no tocamos nada
+            if (grid.scrollWidth <= grid.clientWidth + 1) return;
+            const center = grid.scrollLeft + grid.clientWidth / 2;
+            let best = 0;
+            let bestDist = Infinity;
+            for (let i = 0; i < cards.length; i++) {
+              const c = cards[i];
+              const cCenter = c.offsetLeft + c.offsetWidth / 2;
+              const d = Math.abs(cCenter - center);
+              if (d < bestDist) {
+                bestDist = d;
+                best = i;
+              }
+            }
+            const all = dots.children;
+            for (let i = 0; i < all.length; i++) {
+              all[i].classList.toggle("active", i === best);
+            }
+          }
+          grid.addEventListener("scroll", () => {
+            if (raf) return;
+            raf = requestAnimationFrame(() => {
+              raf = 0;
+              update();
+            });
           });
         });
       })();
