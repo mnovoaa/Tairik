@@ -1,0 +1,2586 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Tairik — Prensa · Explainer · Host</title>
+    <meta name="description" content="Tairik (Maximiliano Román) — Cara visible de shisi.news. Prensa urbana, explainer y host del trap chileno. Booking directo para marcas y eventos." />
+    <meta name="author" content="Tairik" />
+    <meta name="theme-color" content="#080807" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://CHANGE-ME.vercel.app/" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23080807'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23B3261E'/%3E%3C/svg%3E" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Tairik · shisi.news" />
+    <meta property="og:title" content="Tairik — Prensa · Explainer · Host" />
+    <meta property="og:description" content="Cara visible de shisi.news. Prensa urbana del trap chileno. Booking directo." />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content="https://CHANGE-ME.vercel.app/" />
+    <meta property="og:image" content="https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg" />
+    <meta property="og:image:width" content="1000" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tairik — Prensa · Explainer · Host" />
+    <meta name="twitter:description" content="Cara visible de shisi.news. Prensa urbana del trap chileno." />
+    <meta name="twitter:image" content="https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href="assets/tairik-hero.jpg" fetchpriority="high" />
+    <style>
+      /* ---------- TOKENS ---------- */
+      :root {
+        /* obsidian surfaces */
+        --bg: #080807;
+        --bg-1: #0f0f0d;
+        --bg-2: #15151 2;
+        --bg-3: #1c1c18;
+        --line: #26261f;
+        --line-2: #34342b;
+        /* type */
+        --ink: #ece7dc;
+        --ink-dim: #a8a294;
+        --ink-mute: #6a655b;
+        --ink-faint: #403c34;
+        /* single accent */
+        --red: #b3261e;
+        --red-ink: #d83a32; /* for tiny hover only, never large */
+        /* type stacks */
+        --display: "Bebas Neue", "Impact", sans-serif;
+        --body: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+        /* metrics */
+        --gutter: clamp(20px, 4.5vw, 56px);
+        --maxw: 1280px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        background: var(--bg);
+        color: var(--ink);
+      }
+      body {
+        font-family: var(--body);
+        font-size: 15px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-feature-settings: "ss01", "cv11";
+        overflow-x: hidden;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: 0;
+        cursor: pointer;
+      }
+
+      ::selection {
+        background: var(--red);
+        color: #fff;
+      }
+
+      /* ---------- ATOM: labels / hairlines ---------- */
+      .label {
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+      }
+      .label.dim {
+        color: var(--ink-mute);
+      }
+      .label.tight {
+        letter-spacing: 0.12em;
+      }
+      .section-num {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        color: var(--ink-mute);
+      }
+      .hairline {
+        height: 1px;
+        background: var(--line);
+        width: 100%;
+      }
+      .dash {
+        height: 1px;
+        background-image: linear-gradient(
+          to right,
+          var(--line-2) 0 6px,
+          transparent 6px 12px
+        );
+        background-size: 12px 1px;
+        background-repeat: repeat-x;
+        background-position: 0 50%;
+        width: 100%;
+      }
+
+      /* ---------- TOP BROADCAST BAR ---------- */
+      .bar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(8, 8, 7, 0.86);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+      .bar-row {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 10px var(--gutter);
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        color: var(--ink-dim);
+        text-transform: uppercase;
+      }
+      .bar-left {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .bar-center {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+      }
+      .bar-right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .bar .sep {
+        color: var(--ink-faint);
+      }
+      .bar a:hover {
+        color: var(--ink);
+      }
+
+      /* live dot */
+      .live {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--ink);
+      }
+      .live .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--red);
+        box-shadow: 0 0 0 0 rgba(179, 38, 30, 0.55);
+        animation: pulse 1.6s ease-out infinite;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(179, 38, 30, 0.55);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(179, 38, 30, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(179, 38, 30, 0);
+        }
+      }
+      .bar-center .sn {
+        color: var(--ink);
+        letter-spacing: 0.2em;
+      }
+      @media (max-width: 720px) {
+        .bar-row {
+          grid-template-columns: 1fr auto;
+        }
+        .bar-center {
+          display: none;
+        }
+      }
+
+      /* ---------- SHELL ---------- */
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 var(--gutter);
+      }
+
+      /* ---------- HERO ---------- */
+      .hero {
+        position: relative;
+        padding: clamp(28px, 5vw, 64px) 0 clamp(40px, 7vw, 96px);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .hero-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .hero-meta .credlist {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+      }
+      .role-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 14px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+      }
+      .role-row .sep {
+        color: var(--ink-faint);
+      }
+      .role-row b {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .namewrap {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-top: 8px;
+      }
+      .kicker {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+      .name {
+        font-family: var(--display);
+        font-weight: 400;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--ink-dim);
+        font-size: clamp(72px, 18vw, 220px);
+        line-height: 0.82;
+        letter-spacing: 0.005em;
+        text-transform: uppercase;
+      }
+      .alias {
+        font-family: var(--display);
+        font-size: clamp(22px, 4vw, 36px);
+        letter-spacing: 0.14em;
+        color: var(--ink);
+        text-transform: uppercase;
+      }
+      .alias .quote {
+        color: var(--red);
+      }
+
+      /* live badge */
+      .livebadge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 12px 7px 10px;
+        border: 1px solid var(--red);
+        background: rgba(179, 38, 30, 0.06);
+        color: var(--ink);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        width: max-content;
+      }
+      .livebadge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--red);
+        animation: pulse 1.6s ease-out infinite;
+      }
+      .livebadge b {
+        color: var(--red);
+        font-weight: 600;
+      }
+
+      /* photo */
+      .hero-photo {
+        position: relative;
+        aspect-ratio: 4/5;
+        border: 1px solid var(--line);
+        background: #111;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 56% 30%;
+        filter: contrast(1.04) saturate(0.78) brightness(0.94);
+      }
+      .hero-photo::after {
+        /* subtle vignette + cold→warm wash, NO ai glow */
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(8, 8, 7, 0) 55%,
+            rgba(8, 8, 7, 0.55) 100%
+          ),
+          radial-gradient(
+            120% 80% at 50% 0%,
+            rgba(8, 8, 7, 0) 60%,
+            rgba(8, 8, 7, 0.4) 100%
+          );
+        pointer-events: none;
+      }
+      .photo-meta {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+        z-index: 2;
+      }
+      .photo-meta .reg {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .photo-meta .reg::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border: 1px solid var(--ink-dim);
+      }
+      .photo-corner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 24px;
+        height: 24px;
+        border-top: 1px solid var(--ink);
+        border-left: 1px solid var(--ink);
+      }
+      .photo-corner.br {
+        top: auto;
+        left: auto;
+        bottom: 0;
+        right: 0;
+        border: 0;
+        border-bottom: 1px solid var(--ink);
+        border-right: 1px solid var(--ink);
+      }
+
+      .hero-side {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 1px solid var(--line);
+      }
+      .hero-stats .cell {
+        padding: 16px 12px;
+        border-right: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-stats .cell:last-child {
+        border-right: 0;
+      }
+      .hero-stats .cell .k {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .hero-stats .cell .v {
+        font-family: var(--display);
+        font-size: clamp(22px, 3.4vw, 34px);
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        line-height: 1;
+      }
+      .hero-stats .cell .s {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        color: var(--ink-dim);
+        text-transform: uppercase;
+      }
+
+      /* hero CTA inline */
+      .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      @media (min-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1.05fr 0.95fr;
+          gap: clamp(28px, 4vw, 56px);
+          align-items: end;
+        }
+        .hero-meta {
+          order: 1;
+          padding-bottom: 8px;
+        }
+        .hero-photo-col {
+          order: 2;
+        }
+        .name {
+          font-size: clamp(130px, 14vw, 220px);
+        }
+      }
+
+      /* ---------- SECTION CHROME ---------- */
+      section {
+        padding: clamp(56px, 8vw, 120px) 0;
+        position: relative;
+      }
+      .section-head {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 24px;
+        padding-bottom: 26px;
+        border-bottom: 1px solid var(--line);
+        align-items: end;
+      }
+      .section-head .num {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.25em;
+        color: var(--ink-mute);
+        padding-bottom: 8px;
+      }
+      .section-head h2 {
+        font-family: var(--display);
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: clamp(40px, 7vw, 92px);
+        line-height: 0.9;
+        letter-spacing: 0.015em;
+        color: var(--ink);
+      }
+      .section-head .right {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+        padding-top: 14px;
+      }
+      .section-head .right .label {
+        color: var(--ink-mute);
+      }
+
+      /* ---------- §01 PORTAFOLIO ---------- */
+      .portfolio {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(28px, 4vw, 56px);
+        padding-top: clamp(28px, 5vw, 56px);
+      }
+      .lede {
+        font-family: var(--body);
+        font-weight: 400;
+        font-size: clamp(22px, 2.4vw, 30px);
+        line-height: 1.28;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+        text-wrap: pretty;
+        max-width: 22ch;
+      }
+      .lede em {
+        font-style: normal;
+        color: var(--ink-dim);
+      }
+      .lede .mark {
+        color: var(--red);
+        font-style: normal;
+      }
+      .portfolio-body {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        color: var(--ink-dim);
+        max-width: 56ch;
+      }
+      .portfolio-body p {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .portfolio-body p strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .facts {
+        margin-top: 8px;
+        display: grid;
+        grid-template-columns: 1fr;
+        border-top: 1px solid var(--line);
+      }
+      .facts .row {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 14px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+      }
+      .facts .row .k {
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 10.5px;
+        padding-top: 2px;
+      }
+      .facts .row .v {
+        color: var(--ink);
+      }
+
+      @media (min-width: 900px) {
+        .portfolio {
+          grid-template-columns: 1.3fr 1fr;
+          align-items: start;
+        }
+      }
+
+      /* ---------- §02 FORMATOS — VIDEO RAIL ---------- */
+      .formats-intro {
+        padding-top: clamp(20px, 4vw, 40px);
+        padding-bottom: clamp(20px, 4vw, 40px);
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .formats-intro p {
+        color: var(--ink-dim);
+        max-width: 48ch;
+        font-size: 14.5px;
+      }
+
+      .rail-block {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+      }
+      .rail-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .rail-head h3 {
+        font-family: var(--display);
+        font-size: clamp(24px, 3.2vw, 36px);
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+      .rail-head .ratio {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+
+      .rail-vert {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(220px, 1fr));
+        gap: 14px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--line-2) transparent;
+        padding-bottom: 8px;
+        scroll-snap-type: x mandatory;
+      }
+      @media (max-width: 900px) {
+        .rail-vert {
+          grid-template-columns: repeat(4, 70vw);
+          margin: 0 calc(-1 * var(--gutter));
+          padding: 0 var(--gutter) 8px;
+        }
+      }
+      .rail-vert::-webkit-scrollbar {
+        height: 6px;
+      }
+      .rail-vert::-webkit-scrollbar-thumb {
+        background: var(--line-2);
+      }
+
+      .vslot {
+        scroll-snap-align: start;
+        position: relative;
+        aspect-ratio: 9/16;
+        background: var(--bg-1);
+        border: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 12px;
+        overflow: hidden;
+      }
+      .vslot::before {
+        /* subtle scanline texture (no ai glow), pure black-on-black grid */
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.018) 0 1px,
+          transparent 1px 28px
+        );
+        pointer-events: none;
+      }
+      .vslot .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        z-index: 1;
+      }
+      .vslot .top b {
+        color: var(--ink-dim);
+        font-weight: 500;
+      }
+      .vslot .center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 14px;
+        color: var(--ink-mute);
+        pointer-events: none;
+        text-align: center;
+        padding: 0 16px;
+      }
+      .vslot .center .play {
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--line-2);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--ink-dim);
+      }
+      .vslot .center .play svg {
+        width: 14px;
+        height: 14px;
+      }
+      .vslot .center .ph-label {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.25em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+      .vslot .center .ph-sub {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        color: var(--ink-faint);
+        text-transform: uppercase;
+      }
+      .vslot .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        z-index: 1;
+      }
+      .vslot .bottom .lbl b {
+        color: var(--ink);
+        font-weight: 500;
+        font-family: var(--display);
+        letter-spacing: 0.06em;
+        font-size: 18px;
+      }
+
+      /* horizontal entrevistas */
+      .rail-horiz {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      @media (min-width: 720px) {
+        .rail-horiz {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .hslot {
+        position: relative;
+        aspect-ratio: 16/9;
+        background: var(--bg-1);
+        border: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 14px 16px;
+        overflow: hidden;
+      }
+      .hslot::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.018) 0 1px,
+          transparent 1px 28px
+        );
+        pointer-events: none;
+      }
+      .hslot .top,
+      .hslot .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        z-index: 1;
+      }
+      .hslot .center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        color: var(--ink-mute);
+      }
+      .hslot .center .play {
+        width: 56px;
+        height: 56px;
+        border: 1px solid var(--line-2);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+      }
+      .hslot .bottom b {
+        color: var(--ink);
+        font-weight: 500;
+        font-family: var(--display);
+        letter-spacing: 0.06em;
+        font-size: 22px;
+      }
+
+      /* ---------- §03 COLABORACIONES ---------- */
+      .svc-intro {
+        padding-top: clamp(20px, 4vw, 40px);
+        padding-bottom: clamp(18px, 3vw, 32px);
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .svc-intro p {
+        color: var(--ink-dim);
+        max-width: 50ch;
+        font-size: 14.5px;
+      }
+
+      .ratecard {
+        border-top: 1px solid var(--line);
+      }
+      .svc {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 18px;
+        padding: 26px 0;
+        border-bottom: 1px solid var(--line);
+        align-items: start;
+      }
+      .svc .idx {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        color: var(--ink-mute);
+        padding-top: 8px;
+        min-width: 38px;
+      }
+      .svc .body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .svc .ttl {
+        font-family: var(--display);
+        font-size: clamp(28px, 3.6vw, 44px);
+        letter-spacing: 0.03em;
+        color: var(--ink);
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .svc .desc {
+        color: var(--ink-dim);
+        font-size: 14.5px;
+        line-height: 1.55;
+        max-width: 58ch;
+      }
+      .svc .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .svc .meta .chip {
+        padding: 4px 8px;
+        border: 1px solid var(--line);
+      }
+      .svc .price {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 150px;
+        padding-top: 4px;
+      }
+      .svc .price .amt {
+        font-family: var(--display);
+        font-size: clamp(28px, 3.4vw, 40px);
+        color: var(--red);
+        letter-spacing: 0.04em;
+        line-height: 1;
+      }
+      .svc .price .unit {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+      @media (max-width: 720px) {
+        .svc {
+          grid-template-columns: auto 1fr;
+          grid-template-areas:
+            "idx  ttl"
+            "idx  desc"
+            "idx  meta"
+            ".    price";
+          column-gap: 14px;
+          row-gap: 10px;
+        }
+        .svc .idx {
+          grid-area: idx;
+          padding-top: 4px;
+        }
+        .svc .ttl {
+          grid-area: ttl;
+        }
+        .svc .desc {
+          grid-area: desc;
+        }
+        .svc .meta {
+          grid-area: meta;
+        }
+        .svc .price {
+          grid-area: price;
+          text-align: left;
+        }
+        .svc .body {
+          display: contents;
+        }
+      }
+
+      .svc-note {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 22px 0;
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: 0.04em;
+        color: var(--ink-dim);
+      }
+      .svc-note .row {
+        display: flex;
+        gap: 14px;
+        align-items: baseline;
+      }
+      .svc-note .row b {
+        color: var(--ink);
+        font-weight: 500;
+        min-width: 130px;
+        display: inline-block;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-size: 10.5px;
+        color: var(--ink-mute);
+      }
+
+      /* ---------- §04 CÓDIGOS ---------- */
+      .codes {
+        padding-top: clamp(24px, 4vw, 48px);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      @media (min-width: 900px) {
+        .codes {
+          grid-template-columns: 1.3fr 0.7fr;
+        }
+      }
+
+      .code-card {
+        position: relative;
+        border: 1px solid var(--line);
+        background: var(--bg-1);
+        padding: clamp(20px, 3vw, 36px);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+        min-height: 280px;
+      }
+      @media (min-width: 720px) {
+        .code-card {
+          grid-template-columns: 1fr auto;
+          align-items: stretch;
+        }
+      }
+      .code-card::after {
+        /* dossier corner ticks */
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(var(--ink) 0 0) top left/12px 1px no-repeat,
+          linear-gradient(var(--ink) 0 0) top left/1px 12px no-repeat,
+          linear-gradient(var(--ink) 0 0) top right/12px 1px no-repeat,
+          linear-gradient(var(--ink) 0 0) top right/1px 12px no-repeat,
+          linear-gradient(var(--ink) 0 0) bottom left/12px 1px no-repeat,
+          linear-gradient(var(--ink) 0 0) bottom left/1px 12px no-repeat,
+          linear-gradient(var(--ink) 0 0) bottom right/12px 1px no-repeat,
+          linear-gradient(var(--ink) 0 0) bottom right/1px 12px no-repeat;
+        pointer-events: none;
+      }
+      .code-left {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        justify-content: space-between;
+      }
+      .code-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .code-brand .lbl {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .code-brand .name {
+        font-family: var(--display);
+        font-size: clamp(36px, 5vw, 56px);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--ink);
+        -webkit-text-stroke: 0;
+        line-height: 1;
+      }
+      .code-brand .ig {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: var(--ink-dim);
+        letter-spacing: 0.04em;
+      }
+      .code-brand .ig a:hover {
+        color: var(--ink);
+      }
+
+      .code-meta {
+        display: flex;
+        gap: 12px 22px;
+        flex-wrap: wrap;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: var(--ink-dim);
+      }
+      .code-meta .k {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+
+      .code-token {
+        border-left: 1px solid var(--line);
+        padding: 4px 0 4px clamp(18px, 3vw, 32px);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+        min-width: 240px;
+      }
+      @media (max-width: 720px) {
+        .code-token {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+          padding: 22px 0 0;
+        }
+      }
+      .code-token .lbl {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .code-token .val {
+        font-family: var(--display);
+        font-size: clamp(48px, 7vw, 84px);
+        letter-spacing: 0.06em;
+        color: var(--red);
+        line-height: 1;
+      }
+      .code-token .copy {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+        padding: 8px 12px;
+        border: 1px solid var(--line-2);
+        background: transparent;
+        width: max-content;
+        transition:
+          color 0.15s,
+          border-color 0.15s,
+          background 0.15s;
+      }
+      .code-token .copy:hover {
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+      .code-token .copy.copied {
+        color: var(--red);
+        border-color: var(--red);
+      }
+      .code-token .copy svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .code-aside {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: clamp(20px, 3vw, 32px);
+        border: 1px solid var(--line);
+        background: transparent;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.03em;
+        color: var(--ink-dim);
+        line-height: 1.65;
+      }
+      .code-aside h4 {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        font-weight: 500;
+      }
+      .code-aside ol {
+        padding-left: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        color: var(--ink-dim);
+      }
+      .code-aside ol li::marker {
+        color: var(--ink-mute);
+      }
+      .code-aside .add {
+        margin-top: auto;
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+        color: var(--ink-mute);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .code-aside .add b {
+        color: var(--ink-dim);
+        font-weight: 500;
+      }
+
+      /* ---------- §05 BOOKING + REDES ---------- */
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(24px, 4vw, 56px);
+        padding-top: clamp(28px, 5vw, 56px);
+      }
+      @media (min-width: 900px) {
+        .contact {
+          grid-template-columns: 1.2fr 0.8fr;
+        }
+      }
+
+      .booking {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .booking-head {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .booking-head .ttl {
+        font-family: var(--display);
+        font-size: clamp(44px, 7vw, 92px);
+        text-transform: uppercase;
+        letter-spacing: 0.015em;
+        line-height: 0.9;
+        color: var(--ink);
+      }
+      .booking-head p {
+        color: var(--ink-dim);
+        max-width: 48ch;
+        font-size: 15px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 22px;
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        transition:
+          background 0.15s,
+          color 0.15s,
+          border-color 0.15s,
+          transform 0.15s;
+      }
+      .btn .arr {
+        display: inline-block;
+        transition: transform 0.2s;
+      }
+      .btn:hover .arr {
+        transform: translateX(4px);
+      }
+
+      .btn-primary {
+        background: var(--red);
+        color: #fff;
+        border: 1px solid var(--red);
+      }
+      .btn-primary:hover {
+        background: #c63029;
+        border-color: #c63029;
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--line-2);
+      }
+      .btn-ghost:hover {
+        border-color: var(--ink);
+      }
+
+      .booking-meta {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        border-top: 1px solid var(--line);
+        margin-top: 8px;
+      }
+      .booking-meta .row {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        font-family: var(--mono);
+        font-size: 12.5px;
+        letter-spacing: 0.03em;
+      }
+      .booking-meta .row .k {
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        font-size: 10.5px;
+        padding-top: 3px;
+      }
+      .booking-meta .row .v {
+        color: var(--ink);
+      }
+
+      /* social column */
+      .socials {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--line);
+      }
+      .soc {
+        display: grid;
+        grid-template-columns: 40px 1fr auto;
+        gap: 14px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+        align-items: center;
+        transition: padding 0.2s;
+      }
+      .soc:hover {
+        padding-left: 8px;
+      }
+      .soc .n {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+      .soc .plat {
+        font-family: var(--display);
+        font-size: clamp(24px, 3vw, 32px);
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .soc .handle {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: var(--ink-dim);
+        letter-spacing: 0.03em;
+      }
+      .soc .arr {
+        font-family: var(--mono);
+        font-size: 14px;
+        color: var(--ink-mute);
+        transition:
+          transform 0.2s,
+          color 0.2s;
+      }
+      .soc:hover .arr {
+        transform: translateX(6px);
+        color: var(--ink);
+      }
+      .soc .meta {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .linktree {
+        margin-top: 18px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .linktree a {
+        color: var(--ink-dim);
+        border-bottom: 1px solid var(--line-2);
+        padding-bottom: 1px;
+      }
+      .linktree a:hover {
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+
+      /* ---------- FOOTER ---------- */
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 0 44px;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .foot .sig b {
+        color: var(--ink-dim);
+        font-weight: 500;
+      }
+
+      /* ---------- subtle film grain (very low, no glow) ---------- */
+      .grain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.04;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      }
+
+      /* ---------- §02 Video grids (native HTML5) ---------- */
+      .vid-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(12px, 1.4vw, 18px);
+        padding-top: 14px;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .vid-grid-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 720px) {
+        .vid-grid-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+      .vid-slot {
+        position: relative;
+        border: 1px solid var(--line);
+        background: var(--bg-1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          border-color 0.25s ease,
+          transform 0.25s ease;
+      }
+      .vid-slot:hover {
+        border-color: var(--ink-mute);
+      }
+
+      /* head: idx + title, uniform height */
+      .vid-head {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        min-height: 78px;
+      }
+      .vid-head .vid-idx {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+      .vid-head .vid-title {
+        font-family: var(--display);
+        font-weight: 400;
+        font-size: clamp(15px, 1.4vw, 18px);
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        text-transform: uppercase;
+        line-height: 1.08;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* frame: video + custom play overlay */
+      .vid-frame {
+        position: relative;
+        background: #000;
+        overflow: hidden;
+        display: block;
+      }
+      .vid-frame video {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 9/16;
+        object-fit: cover;
+        background: #000;
+        cursor: pointer;
+      }
+      /* Fullscreen: restore native aspect so 16:9 videos no se recortan */
+      .vid-frame video:fullscreen,
+      .vid-frame video:-webkit-full-screen {
+        aspect-ratio: auto !important;
+        object-fit: contain !important;
+        max-height: none !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      /* custom play button (centered, gray, on-theme) */
+      .vid-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: clamp(56px, 7vw, 76px);
+        height: clamp(56px, 7vw, 76px);
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(236, 231, 220, 0.18);
+        background: rgba(15, 15, 13, 0.72);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        color: var(--ink);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 3;
+        font: inherit;
+        padding: 0;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease;
+      }
+      .vid-play-btn:hover {
+        background: var(--red);
+        border-color: var(--red);
+        color: #fff;
+        transform: translate(-50%, -50%) scale(1.06);
+      }
+      .vid-play-btn svg {
+        width: 28%;
+        height: 28%;
+      }
+      .vid-play-btn .icon-pause {
+        display: none;
+      }
+
+      /* paused state (default): show play; visible always */
+      .vid-frame[data-playing="true"] .vid-play-btn {
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(0.86);
+      }
+      /* on hover during playback: reveal button as pause */
+      .vid-frame[data-playing="true"]:hover .vid-play-btn {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .vid-frame[data-playing="true"] .vid-play-btn .icon-play {
+        display: none;
+      }
+      .vid-frame[data-playing="true"] .vid-play-btn .icon-pause {
+        display: block;
+      }
+
+      /* corner ticks on hover — editorial flourish */
+      .vid-slot::before,
+      .vid-slot::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-color: var(--ink);
+        border-style: solid;
+        border-width: 0;
+        z-index: 4;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+      }
+      .vid-slot::before {
+        top: 6px;
+        left: 6px;
+        border-top-width: 1px;
+        border-left-width: 1px;
+      }
+      .vid-slot::after {
+        bottom: 6px;
+        right: 6px;
+        border-bottom-width: 1px;
+        border-right-width: 1px;
+      }
+      .vid-slot:hover::before,
+      .vid-slot:hover::after {
+        opacity: 1;
+      }
+
+      /* ---------- focus ---------- */
+      :focus-visible {
+        outline: 1px solid var(--red);
+        outline-offset: 3px;
+      }
+    </style>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Maximiliano Tairik Román",
+      "alternateName": "Tairik",
+      "jobTitle": "Prensa · Explainer · Host",
+      "url": "https://CHANGE-ME.vercel.app/",
+      "image": "https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg",
+      "email": "t4irik@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Santiago",
+        "addressCountry": "CL"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "ShishiGang Records",
+        "url": "https://shisi.news"
+      },
+      "sameAs": [
+        "https://instagram.com/t4irik",
+        "https://tiktok.com/@t4irik",
+        "https://youtube.com/@t4irik",
+        "https://kick.com/t4irik"
+      ]
+    }
+    </script>
+  </head>
+  <body data-screen-label="Tairik — Personal page">
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- ╔═══════════════════════════════════════════════╗
+     ║  TOP BROADCAST BAR                            ║
+     ╚═══════════════════════════════════════════════╝ -->
+    <header class="bar" role="banner">
+      <div class="bar-row">
+        <div class="bar-left">
+          <span class="live"><span class="dot"></span> SHISI.NEWS</span>
+          <span class="sep">/</span>
+          <span>DOSIER · 001</span>
+        </div>
+        <div class="bar-center">
+          <span class="sn">MAXIMILIANO ROMÁN</span>
+          <span class="sep">·</span>
+          <span>PRENSA URBANA</span>
+        </div>
+        <div class="bar-right">
+          <span id="tc">--:--:--</span>
+          <span class="sep">·</span>
+          <span>SCL</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ╔═══════════════════════════════════════════════╗
+     ║  HERO                                         ║
+     ╚═══════════════════════════════════════════════╝ -->
+      <section class="hero" aria-label="Tairik">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div class="hero-meta">
+              <div class="livebadge" aria-label="En vivo en shisi.news">
+                <span class="dot" aria-hidden="true"></span>
+                <span>SHISI.NEWS · <b>EN VIVO</b></span>
+              </div>
+
+              <div class="namewrap">
+                <span class="kicker">DOSIER 001 / SANTIAGO · CHILE</span>
+                <h1 class="name">TAIRIK</h1>
+                <span class="alias"
+                  ><span class="quote">“</span>MAXIMILIANO TAIRIK ROMÁN<span
+                    class="quote"
+                    >”</span
+                  ></span
+                >
+              </div>
+
+              <div class="role-row" aria-label="Rol">
+                <b>PRENSA</b><span class="sep">·</span> <b>EXPLAINER</b
+                ><span class="sep">·</span>
+                <b>HOST</b>
+              </div>
+
+              <div class="hero-stats" aria-label="Resumen">
+                <div class="cell">
+                  <span class="k">Base</span>
+                  <span class="v">SCL</span>
+                  <span class="s">Santiago · Chile</span>
+                </div>
+                <div class="cell">
+                  <span class="k">Casa</span>
+                  <span class="v">SHISI</span>
+                  <span class="s">ShishiGang Records</span>
+                </div>
+              </div>
+
+              <div class="hero-cta">
+                <a class="btn btn-primary" href="#booking">
+                  <span>RESERVAR COLABORACIÓN</span>
+                  <span class="arr">→</span>
+                </a>
+                <a class="btn btn-ghost" href="#formatos">
+                  <span>VER FORMATOS</span>
+                  <span class="arr">↓</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-photo-col">
+              <div class="hero-photo" role="img" aria-label="Retrato de Tairik">
+                <span class="photo-corner" aria-hidden="true"></span>
+                <span class="photo-corner br" aria-hidden="true"></span>
+                <img src="assets/tairik-hero.jpg" alt="Retrato de Tairik (Maximiliano Román)" width="1000" height="1250" loading="eager" fetchpriority="high" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ╔═══════════════════════════════════════════════╗
+     ║  §01 PORTAFOLIO                               ║
+     ╚═══════════════════════════════════════════════╝ -->
+      <section id="portafolio">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="num">§ 01</div>
+            <h2>PORTAFOLIO</h2>
+            <div class="right">
+              <span class="label">QUIÉN ES · QUÉ HACE</span>
+              <span class="label dim">UPDATE · 2025</span>
+            </div>
+          </div>
+
+          <div class="portfolio">
+            <div>
+              <p class="lede">
+                La cara visible de <span class="mark">shisi.news</span>, el
+                noticiero oficial de
+                <em>ShishiGang Records / Pablo&nbsp;Chill-E</em>. Prensa que
+                entiende la calle porque viene de ella.
+              </p>
+            </div>
+
+            <div class="portfolio-body">
+              <p>
+                <strong>Tairik</strong> es prensa urbana y host. Cubre
+                lanzamientos, entrevistas, batallas, eventos y la trastienda del
+                trap chileno con un código que el medio tradicional no tiene: el
+                de adentro. No es periodismo blanco con barniz urbano — es la
+                voz que la escena ya escucha.
+              </p>
+              <p>
+                Para marcas, esto se traduce en algo concreto:
+                <strong>acceso, credibilidad y velocidad</strong>. Llega a
+                entrevistas que nadie más consigue, explica codigos, contextos y
+                jergas sin perder rigor, y construye narrativa de marca en
+                formatos que la audiencia ya consume.
+              </p>
+
+              <div class="facts">
+                <div class="row">
+                  <span class="k">Rol</span
+                  ><span class="v">Prensa · Explainer · Host</span>
+                </div>
+                <div class="row">
+                  <span class="k">Medio</span
+                  ><span class="v">shisi.news — ShishiGang Records</span>
+                </div>
+                <div class="row">
+                  <span class="k">Base</span
+                  ><span class="v">Santiago de Chile</span>
+                </div>
+                <div class="row">
+                  <span class="k">Cobertura</span
+                  ><span class="v"
+                    >Eventos, batallas, entrevistas, lanzamientos</span
+                  >
+                </div>
+                <div class="row">
+                  <span class="k">Audiencia</span
+                  ><span class="v">Trap / urbano</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ╔═══════════════════════════════════════════════╗
+     ║  §02 FORMATOS                                 ║
+     ╚═══════════════════════════════════════════════╝ -->
+      <section id="formatos">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="num">§ 02</div>
+            <h2>FORMATOS</h2>
+            <div class="right">
+              <span class="label">REEL · VIRALES &amp; ENTREVISTAS</span>
+            </div>
+          </div>
+
+          <!-- VIRALES -->
+          <div class="rail-block">
+            <div class="rail-head">
+              <h3>Virales</h3>
+              <span class="ratio">INSTAGRAM · REELS</span>
+            </div>
+
+            <div class="vid-grid-3" role="list">
+              <article class="vid-slot" role="listitem">
+                <div class="vid-head">
+                  <span class="vid-idx">VIRAL · 01</span>
+                  <span class="vid-title"
+                    >YOUNG CISTER FT LA GOTITA MAGISTRAL</span
+                  >
+                </div>
+                <div class="vid-frame">
+                  <video
+                    src="assets/videos/viral-1.mp4"
+                    poster="assets/thumbs/viral-1.jpg"
+                    controls
+                    playsinline
+                    preload="none"
+                  ></video>
+                  <button
+                    type="button"
+                    class="vid-play-btn"
+                    aria-label="Reproducir / pausar"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5v15l13-7.5z" />
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5h4v15H7zM13 4.5h4v15h-4z" />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+
+              <article class="vid-slot" role="listitem">
+                <div class="vid-head">
+                  <span class="vid-idx">VIRAL · 02</span>
+                  <span class="vid-title"
+                    >PABLO CHILL-E — 173 TEMAS EN EL UNTITLED</span
+                  >
+                </div>
+                <div class="vid-frame">
+                  <video
+                    src="assets/videos/viral-2.mp4"
+                    poster="assets/thumbs/viral-2.jpg"
+                    controls
+                    playsinline
+                    preload="none"
+                  ></video>
+                  <button
+                    type="button"
+                    class="vid-play-btn"
+                    aria-label="Reproducir / pausar"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5v15l13-7.5z" />
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5h4v15H7zM13 4.5h4v15h-4z" />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+
+              <article class="vid-slot" role="listitem">
+                <div class="vid-head">
+                  <span class="vid-idx">VIRAL · 03</span>
+                  <span class="vid-title">ALO, KATTEYES Y S1NAKA</span>
+                </div>
+                <div class="vid-frame">
+                  <video
+                    src="assets/videos/viral-3.mp4"
+                    poster="assets/thumbs/viral-3.jpg"
+                    controls
+                    playsinline
+                    preload="none"
+                  ></video>
+                  <button
+                    type="button"
+                    class="vid-play-btn"
+                    aria-label="Reproducir / pausar"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5v15l13-7.5z" />
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5h4v15H7zM13 4.5h4v15h-4z" />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- ENTREVISTAS -->
+          <div class="rail-block" style="margin-top: clamp(28px, 4vw, 56px)">
+            <div class="rail-head">
+              <h3>Entrevistas</h3>
+              <span class="ratio">INSTAGRAM</span>
+            </div>
+
+            <div class="vid-grid-3" role="list">
+              <article class="vid-slot" role="listitem">
+                <div class="vid-head">
+                  <span class="vid-idx">ENTREVISTA · 01</span>
+                  <span class="vid-title"
+                    >@FUEGODELATEX — DISEÑADOR PORTADA SINAKA</span
+                  >
+                </div>
+                <div class="vid-frame">
+                  <video
+                    src="assets/videos/entrevista-1.mp4"
+                    poster="assets/thumbs/entrevista-1.jpg"
+                    controls
+                    playsinline
+                    preload="none"
+                  ></video>
+                  <button
+                    type="button"
+                    class="vid-play-btn"
+                    aria-label="Reproducir / pausar"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5v15l13-7.5z" />
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5h4v15H7zM13 4.5h4v15h-4z" />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+
+              <article class="vid-slot" role="listitem">
+                <div class="vid-head">
+                  <span class="vid-idx">ENTREVISTA · 02</span>
+                  <span class="vid-title">J ALVAREZ - DEUDA HISTÓRICA</span>
+                </div>
+                <div class="vid-frame">
+                  <video
+                    src="assets/videos/entrevista-2.mp4"
+                    poster="assets/thumbs/entrevista-2.jpg"
+                    controls
+                    playsinline
+                    preload="none"
+                  ></video>
+                  <button
+                    type="button"
+                    class="vid-play-btn"
+                    aria-label="Reproducir / pausar"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5v15l13-7.5z" />
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5h4v15H7zM13 4.5h4v15h-4z" />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+
+              <article class="vid-slot" role="listitem">
+                <div class="vid-head">
+                  <span class="vid-idx">ENTREVISTA · 03</span>
+                  <span class="vid-title">SINAKA - EL NUEVO SONIDO</span>
+                </div>
+                <div class="vid-frame">
+                  <video
+                    src="assets/videos/entrevista-3.mp4"
+                    poster="assets/thumbs/entrevista-3.jpg"
+                    controls
+                    playsinline
+                    preload="none"
+                  ></video>
+                  <button
+                    type="button"
+                    class="vid-play-btn"
+                    aria-label="Reproducir / pausar"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5v15l13-7.5z" />
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 4.5h4v15H7zM13 4.5h4v15h-4z" />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ╔═══════════════════════════════════════════════╗
+     ║  §03 COLABORACIONES                           ║
+     ╚═══════════════════════════════════════════════╝ -->
+      <section id="colaboraciones">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="num">§ 03</div>
+            <h2>COLABORACIONES</h2>
+            <div class="right">
+              <span class="label">CATÁLOGO · PRECIOS POR FORMATO</span>
+              <span class="label dim">CLP · VIGENCIA 2025</span>
+            </div>
+          </div>
+
+          <div class="svc-intro">
+            <p>
+              Cinco formatos definidos para marcas. Precio por colaboración, con
+              derechos de uso, plazos y entregables explícitos. Combos
+              disponibles a pedido.
+            </p>
+            <p class="label dim" style="align-self: flex-end">
+              Valores netos · pago 50/50
+            </p>
+          </div>
+
+          <div class="ratecard" role="list">
+            <article class="svc" role="listitem">
+              <span class="idx">01 /</span>
+              <div class="body">
+                <h3 class="ttl">Mención en formato</h3>
+                <p class="desc">
+                  Aparición orgánica de marca dentro de un video propio (TikTok
+                  / Reels). Integración natural en el guión, no interrumpe el
+                  formato.
+                </p>
+                <div class="meta">
+                  <span class="chip">9:16</span>
+                  <span class="chip">15–45s</span>
+                  <span class="chip">1 revisión</span>
+                  <span class="chip">Cesión orgánica 30d</span>
+                </div>
+              </div>
+              <div class="price">
+                <span class="amt">CLP 250.000</span>
+                <span class="unit">/ pieza</span>
+              </div>
+            </article>
+
+            <article class="svc" role="listitem">
+              <span class="idx">02 /</span>
+              <div class="body">
+                <h3 class="ttl">Video dedicado</h3>
+                <p class="desc">
+                  Pieza completa de marca con concepto, guión y producción. Una
+                  historia, una marca. Publicación cruzada en TikTok +
+                  Instagram.
+                </p>
+                <div class="meta">
+                  <span class="chip">9:16</span>
+                  <span class="chip">45–90s</span>
+                  <span class="chip">2 revisiones</span>
+                  <span class="chip">TikTok + IG</span>
+                  <span class="chip">Cesión 60d</span>
+                </div>
+              </div>
+              <div class="price">
+                <span class="amt">CLP 650.000</span>
+                <span class="unit">/ pieza</span>
+              </div>
+            </article>
+
+            <article class="svc" role="listitem">
+              <span class="idx">03 /</span>
+              <div class="body">
+                <h3 class="ttl">Entrevista patrocinada</h3>
+                <p class="desc">
+                  Pieza larga en YouTube con presencia de marca al aire:
+                  bumpers, mención de host, lower-third y CTA final. Brand-safe,
+                  código de prensa.
+                </p>
+                <div class="meta">
+                  <span class="chip">16:9</span>
+                  <span class="chip">10–25min</span>
+                  <span class="chip">YouTube</span>
+                  <span class="chip">Bumper + CTA</span>
+                  <span class="chip">Cesión 90d</span>
+                </div>
+              </div>
+              <div class="price">
+                <span class="amt">CLP 1.200.000</span>
+                <span class="unit">/ episodio</span>
+              </div>
+            </article>
+
+            <article class="svc" role="listitem">
+              <span class="idx">04 /</span>
+              <div class="body">
+                <h3 class="ttl">Cobertura de evento</h3>
+                <p class="desc">
+                  Tairik presente como prensa en tu evento. Entrevistas
+                  backstage, color en cámara, post-event recap en formato 9:16.
+                  Equipo y micrófono brandeable a pedido.
+                </p>
+                <div class="meta">
+                  <span class="chip">On-site SCL</span>
+                  <span class="chip">≤ 6 hrs</span>
+                  <span class="chip">Recap 9:16</span>
+                  <span class="chip">Stories en vivo</span>
+                </div>
+              </div>
+              <div class="price">
+                <span class="amt">CLP 900.000</span>
+                <span class="unit">/ jornada</span>
+              </div>
+            </article>
+
+            <article class="svc" role="listitem">
+              <span class="idx">05 /</span>
+              <div class="body">
+                <h3 class="ttl">Host / Animación</h3>
+                <p class="desc">
+                  Conducción en vivo de tu evento o activación. Experiencia
+                  comprobada en batallas, freestyle, urbano. Voz, presencia y
+                  manejo de público.
+                </p>
+                <div class="meta">
+                  <span class="chip">On-site SCL</span>
+                  <span class="chip">≤ 4 hrs</span>
+                  <span class="chip">Guión a medida</span>
+                </div>
+              </div>
+              <div class="price">
+                <span class="amt">CLP 700.000</span>
+                <span class="unit">/ evento</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="svc-note">
+            <div class="row">
+              <b>Combo</b
+              ><span
+                >Dedicado + Mención + Entrevista = -15% sobre suma total.</span
+              >
+            </div>
+            <div class="row">
+              <b>Producción</b
+              ><span
+                >Edición, guión y cámara incluidos. Insumos de marca a cargo del
+                cliente.</span
+              >
+            </div>
+            <div class="row">
+              <b>Cesión</b
+              ><span
+                >Uso en redes orgánicas dentro del plazo indicado. Paid media se
+                cotiza aparte.</span
+              >
+            </div>
+            <div class="row">
+              <b>Cancelación</b
+              ><span
+                >Hasta 72h antes del rodaje sin costo. Después del rodaje no
+                aplica reembolso.</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ╔═══════════════════════════════════════════════╗
+     ║  §04 CÓDIGOS DE DESCUENTO                     ║
+     ╚═══════════════════════════════════════════════╝ -->
+      <section id="codigos">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="num">§ 04</div>
+            <h2>CÓDIGOS</h2>
+            <div class="right">
+              <span class="label">DESCUENTO ACTIVO · 1 MARCA</span>
+              <span class="label dim">VÁLIDO EN COMPRA DIRECTA</span>
+            </div>
+          </div>
+
+          <div class="codes">
+            <article class="code-card">
+              <div class="code-left">
+                <div class="code-brand">
+                  <span class="lbl">MARCA · 01</span>
+                  <h3 class="name">WatonBurgers</h3>
+                  <span class="ig"
+                    ><a
+                      href="https://instagram.com/watonburgerscl"
+                      target="_blank"
+                      rel="noopener"
+                      >@watonburgerscl</a
+                    >
+                    · IG</span
+                  >
+                </div>
+
+                <div class="code-meta">
+                  <div>
+                    <span class="k">Tipo</span>
+                    <span>Descuento directo</span>
+                  </div>
+                  <div>
+                    <span class="k">Vigencia</span>
+                    <span>Indefinida</span>
+                  </div>
+                  <div>
+                    <span class="k">Canal</span>
+                    <span>Local · Pedido</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="code-token">
+                <span class="lbl">USA EL CÓDIGO</span>
+                <span class="val" id="code-value">TAIRIK20</span>
+                <button
+                  class="copy"
+                  type="button"
+                  id="code-copy"
+                  aria-label="Copiar código"
+                >
+                  <svg
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  >
+                    <rect x="3" y="3" width="7" height="7" />
+                    <path d="M2 8V2h6" />
+                  </svg>
+                  <span>COPIAR</span>
+                </button>
+              </div>
+            </article>
+
+            <aside class="code-aside" aria-label="Cómo usar">
+              <h4>CÓMO USAR</h4>
+              <ol>
+                <li>
+                  Copia el código <b style="color: var(--ink)">TAIRIK20</b>.
+                </li>
+                <li>Visita el local o pide a domicilio.</li>
+                <li>Menciónalo al confirmar el pedido.</li>
+              </ol>
+
+              <div class="add">
+                <span><b>+ marcas</b> &nbsp;próximamente</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ╔═══════════════════════════════════════════════╗
+     ║  §05 BOOKING + REDES                          ║
+     ╚═══════════════════════════════════════════════╝ -->
+      <section id="booking">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="num">§ 05</div>
+            <h2>BOOKING</h2>
+            <div class="right">
+              <span class="label"
+                >CONTACTO DIRECTO · MARCAS &amp; AGENCIAS</span
+              >
+              <span class="label dim">RESPUESTA EN ≤ 24H</span>
+            </div>
+          </div>
+
+          <div class="contact">
+            <div class="booking">
+              <div class="booking-head">
+                <h3 class="ttl">¿Me quieres en tu marca?</h3>
+                <p>
+                  Gestiono mi propio booking — sin agencias, sin intermediarios,
+                  sin rodeos. Si me querés para una collab, evento o prensa,
+                  escríbeme directo. Decime qué tenés en mente y lo armamos.
+                </p>
+              </div>
+
+              <div class="cta-row">
+                <a
+                  class="btn btn-primary"
+                  href="mailto:t4irik@gmail.com?subject=Booking%20%E2%80%94%20Tairik%20colaboraci%C3%B3n"
+                >
+                  <span>t4irik@gmail.com</span>
+                  <span class="arr">→</span>
+                </a>
+                <button
+                  class="btn btn-ghost"
+                  id="email-copy"
+                  type="button"
+                  aria-label="Copiar email"
+                >
+                  <span id="email-copy-lbl">COPIAR EMAIL</span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  >
+                    <rect x="3" y="3" width="7" height="7" />
+                    <path d="M2 8V2h6" />
+                  </svg>
+                </button>
+              </div>
+
+              <div class="booking-meta">
+                <div class="row">
+                  <span class="k">Email</span
+                  ><span class="v">t4irik@gmail.com</span>
+                </div>
+                <div class="row">
+                  <span class="k">Base</span
+                  ><span class="v">Santiago · Chile</span>
+                </div>
+                <div class="row">
+                  <span class="k">Disponibilidad</span
+                  ><span class="v">SCL · Viajes a pedido</span>
+                </div>
+                <div class="row">
+                  <span class="k">Pago</span
+                  ><span class="v"
+                    >Transferencia · 50% adelanto · 50% entrega</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <span class="label" style="display: block; padding-bottom: 14px"
+                >REDES</span
+              >
+
+              <div class="socials">
+                <a
+                  class="soc"
+                  href="https://instagram.com/t4irik"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="n">01</span>
+                  <span class="meta"
+                    ><span class="plat">Instagram</span
+                    ><span class="handle">@t4irik</span></span
+                  >
+                  <span class="arr">↗</span>
+                </a>
+                <a
+                  class="soc"
+                  href="https://tiktok.com/@t4irik"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="n">02</span>
+                  <span class="meta"
+                    ><span class="plat">TikTok</span
+                    ><span class="handle">@t4irik</span></span
+                  >
+                  <span class="arr">↗</span>
+                </a>
+                <a
+                  class="soc"
+                  href="https://youtube.com/@t4irik"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="n">03</span>
+                  <span class="meta"
+                    ><span class="plat">YouTube</span
+                    ><span class="handle">@t4irik</span></span
+                  >
+                  <span class="arr">↗</span>
+                </a>
+                <a
+                  class="soc"
+                  href="https://kick.com/t4irik"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="n">04</span>
+                  <span class="meta"
+                    ><span class="plat">Kick</span
+                    ><span class="handle">t4irik</span></span
+                  >
+                  <span class="arr">↗</span>
+                </a>
+              </div>
+
+              <p class="linktree">
+                + todo en un sitio:
+                <a
+                  href="https://linktr.ee/t4irik"
+                  target="_blank"
+                  rel="noopener"
+                  >linktr.ee/t4irik</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ╔═══════════════════════════════════════════════╗
+     ║  FOOTER                                       ║
+     ╚═══════════════════════════════════════════════╝ -->
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <span>FIN DEL DOSIER · 06 / 06</span>
+          <span class="sig">SHISI.NEWS · MANAGED BY <b>SHOWUP</b></span>
+          <span>© <span id="yr"></span> · TAIRIK</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Live SCL timecode in broadcast bar
+      (function tc() {
+        const el = document.getElementById("tc");
+        const yr = document.getElementById("yr");
+        if (yr) yr.textContent = new Date().getFullYear();
+        function tick() {
+          const d = new Date();
+          // Approximate Santiago time (UTC-3 standard / UTC-4 DST). We use locale.
+          const f = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "America/Santiago",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+          });
+          el.textContent = f.format(d) + " SCL";
+        }
+        tick();
+        setInterval(tick, 1000);
+      })();
+
+      // Code copy
+      (function () {
+        const btn = document.getElementById("code-copy");
+        const val = document.getElementById("code-value");
+        if (!btn || !val) return;
+        btn.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(val.textContent.trim());
+            btn.classList.add("copied");
+            const span = btn.querySelector("span");
+            const old = span.textContent;
+            span.textContent = "COPIADO";
+            setTimeout(() => {
+              btn.classList.remove("copied");
+              span.textContent = old;
+            }, 1400);
+          } catch (e) {}
+        });
+      })();
+
+      // Video slots: adaptive aspect-ratio + play/pause overlay
+      (function () {
+        document.querySelectorAll(".vid-slot").forEach((slot) => {
+          const frame = slot.querySelector(".vid-frame");
+          const video = slot.querySelector("video");
+          const btn = slot.querySelector(".vid-play-btn");
+          if (!frame || !video) return;
+
+          function toggle() {
+            if (video.paused || video.ended) video.play().catch(() => {});
+            else video.pause();
+          }
+
+          // Click overlay button
+          if (btn) {
+            btn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              toggle();
+            });
+          }
+          // (Native <video controls> ya alterna play/pause al clickear sobre el video,
+          // no agregamos listener custom para evitar doble toggle.)
+
+          // State → data attribute (drives CSS for play/pause icon swap)
+          video.addEventListener("play", () => {
+            frame.dataset.playing = "true";
+          });
+          video.addEventListener("pause", () => {
+            frame.dataset.playing = "false";
+          });
+          video.addEventListener("ended", () => {
+            frame.dataset.playing = "false";
+          });
+        });
+      })();
+
+      // Email copy
+      (function () {
+        const btn = document.getElementById("email-copy");
+        const lbl = document.getElementById("email-copy-lbl");
+        if (!btn || !lbl) return;
+        btn.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText("t4irik@gmail.com");
+            const old = lbl.textContent;
+            lbl.textContent = "COPIADO";
+            setTimeout(() => {
+              lbl.textContent = old;
+            }, 1400);
+          } catch (e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>
