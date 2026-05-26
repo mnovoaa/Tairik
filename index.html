@@ -7,28 +7,46 @@
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
     <title>Tairik — Prensa · Explainer · Host</title>
-    <meta name="description" content="Tairik (Maximiliano Román) — Cara visible de shisi.news. Prensa urbana, explainer y host del trap chileno. Booking directo para marcas y eventos." />
+    <meta
+      name="description"
+      content="Tairik (Maximiliano Román) — Uno de los rostros visibles de shishi.news. Prensa urbana, explainer y host del trap chileno. Booking directo para marcas y eventos."
+    />
     <meta name="author" content="Tairik" />
     <meta name="theme-color" content="#080807" />
     <meta name="color-scheme" content="dark" />
     <link rel="canonical" href="https://CHANGE-ME.vercel.app/" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23080807'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23B3261E'/%3E%3C/svg%3E" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23080807'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23B3261E'/%3E%3C/svg%3E"
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
-    <meta property="og:site_name" content="Tairik · shisi.news" />
+    <meta property="og:site_name" content="Tairik · shishi.news" />
     <meta property="og:title" content="Tairik — Prensa · Explainer · Host" />
-    <meta property="og:description" content="Cara visible de shisi.news. Prensa urbana del trap chileno. Booking directo." />
+    <meta
+      property="og:description"
+      content="Cara visible de shishi.news. Prensa urbana del trap chileno. Booking directo."
+    />
     <meta property="og:locale" content="es_CL" />
     <meta property="og:url" content="https://CHANGE-ME.vercel.app/" />
-    <meta property="og:image" content="https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg" />
+    <meta
+      property="og:image"
+      content="https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg"
+    />
     <meta property="og:image:width" content="1000" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tairik — Prensa · Explainer · Host" />
-    <meta name="twitter:description" content="Cara visible de shisi.news. Prensa urbana del trap chileno." />
-    <meta name="twitter:image" content="https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg" />
+    <meta
+      name="twitter:description"
+      content="Una de las caras visibles de shishi.news. Prensa urbana del trap chileno."
+    />
+    <meta
+      name="twitter:image"
+      content="https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +54,12 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="preload" as="image" href="assets/tairik-hero.jpg" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/tairik-hero.jpg"
+      fetchpriority="high"
+    />
     <style>
       /* ---------- TOKENS ---------- */
       :root {
@@ -846,152 +869,144 @@
         font-size: 22px;
       }
 
-      /* ---------- §03 COLABORACIONES ---------- */
-      .svc-intro {
-        padding-top: clamp(20px, 4vw, 40px);
-        padding-bottom: clamp(18px, 3vw, 32px);
-        display: flex;
-        justify-content: space-between;
-        gap: 24px;
-        flex-wrap: wrap;
-      }
-      .svc-intro p {
-        color: var(--ink-dim);
-        max-width: 50ch;
-        font-size: 14.5px;
-      }
-
-      .ratecard {
-        border-top: 1px solid var(--line);
-      }
-      .svc {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        gap: 18px;
-        padding: 26px 0;
-        border-bottom: 1px solid var(--line);
-        align-items: start;
-      }
-      .svc .idx {
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.22em;
-        color: var(--ink-mute);
-        padding-top: 8px;
-        min-width: 38px;
-      }
-      .svc .body {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .svc .ttl {
-        font-family: var(--display);
-        font-size: clamp(28px, 3.6vw, 44px);
-        letter-spacing: 0.03em;
-        color: var(--ink);
-        text-transform: uppercase;
-        line-height: 1;
-      }
-      .svc .desc {
-        color: var(--ink-dim);
-        font-size: 14.5px;
-        line-height: 1.55;
-        max-width: 58ch;
-      }
-      .svc .meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px 10px;
-        font-family: var(--mono);
-        font-size: 10.5px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--ink-mute);
-      }
-      .svc .meta .chip {
-        padding: 4px 8px;
-        border: 1px solid var(--line);
-      }
-      .svc .price {
-        text-align: right;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        min-width: 150px;
-        padding-top: 4px;
-      }
-      .svc .price .amt {
-        font-family: var(--display);
-        font-size: clamp(28px, 3.4vw, 40px);
-        color: var(--red);
-        letter-spacing: 0.04em;
-        line-height: 1;
-      }
-      .svc .price .unit {
-        font-family: var(--mono);
-        font-size: 10.5px;
-        letter-spacing: 0.22em;
-        color: var(--ink-mute);
-        text-transform: uppercase;
-      }
-      @media (max-width: 720px) {
-        .svc {
-          grid-template-columns: auto 1fr;
-          grid-template-areas:
-            "idx  ttl"
-            "idx  desc"
-            "idx  meta"
-            ".    price";
-          column-gap: 14px;
-          row-gap: 10px;
-        }
-        .svc .idx {
-          grid-area: idx;
-          padding-top: 4px;
-        }
-        .svc .ttl {
-          grid-area: ttl;
-        }
-        .svc .desc {
-          grid-area: desc;
-        }
-        .svc .meta {
-          grid-area: meta;
-        }
-        .svc .price {
-          grid-area: price;
-          text-align: left;
-        }
-        .svc .body {
-          display: contents;
-        }
-      }
-
-      .svc-note {
+      /* ---------- §03 DUPLA — mención honorífica ---------- */
+      .dupla {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 22px 0;
+        gap: clamp(24px, 4vw, 56px);
+        padding-top: clamp(28px, 5vw, 56px);
+      }
+      @media (min-width: 900px) {
+        .dupla {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+        }
+      }
+      .dupla-photo {
+        position: relative;
+        margin: 0;
+        aspect-ratio: 4/5;
+        border: 1px solid var(--line);
+        background: #111;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .dupla-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: contrast(1.04) saturate(0.82) brightness(0.94);
+      }
+      .dupla-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(8, 8, 7, 0) 50%,
+            rgba(8, 8, 7, 0.6) 100%
+          ),
+          radial-gradient(
+            120% 80% at 50% 0%,
+            rgba(8, 8, 7, 0) 60%,
+            rgba(8, 8, 7, 0.35) 100%
+          );
+        pointer-events: none;
+        z-index: 1;
+      }
+      .dupla-photo .photo-corner {
+        z-index: 2;
+      }
+      .dupla-caption {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        z-index: 3;
         font-family: var(--mono);
-        font-size: 11.5px;
-        letter-spacing: 0.04em;
+        font-size: 10px;
+        letter-spacing: 0.22em;
         color: var(--ink-dim);
+        text-transform: uppercase;
       }
-      .svc-note .row {
+      .dupla-body {
         display: flex;
-        gap: 14px;
-        align-items: baseline;
+        flex-direction: column;
+        gap: 18px;
       }
-      .svc-note .row b {
+      .dupla-kicker {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+      .dupla-name {
+        font-family: var(--display);
+        font-weight: 400;
+        font-size: clamp(56px, 9vw, 120px);
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        line-height: 0.9;
+        text-transform: uppercase;
+      }
+      .dupla-name a {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 12px;
+        color: var(--ink);
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .dupla-name a:hover {
+        color: var(--red);
+        border-color: var(--red);
+      }
+      .dupla-arrow {
+        font-size: 0.45em;
+        color: var(--ink-mute);
+        transition: transform 0.2s, color 0.2s;
+      }
+      .dupla-name a:hover .dupla-arrow {
+        color: var(--red);
+        transform: translate(4px, -4px);
+      }
+      .dupla-text {
+        color: var(--ink-dim);
+        font-size: 15.5px;
+        line-height: 1.6;
+        max-width: 52ch;
+      }
+      .dupla-text strong {
         color: var(--ink);
         font-weight: 500;
-        min-width: 130px;
-        display: inline-block;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
+      }
+      .dupla-text a {
+        color: var(--ink);
+        border-bottom: 1px solid var(--line-2);
+        padding-bottom: 1px;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .dupla-text a:hover {
+        color: var(--red);
+        border-color: var(--red);
+      }
+      .dupla-attribution {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+        margin-top: 4px;
+        font-family: var(--mono);
         font-size: 10.5px;
+        letter-spacing: 0.22em;
         color: var(--ink-mute);
+        text-transform: uppercase;
+      }
+      .dupla-attribution-sep {
+        color: var(--ink-faint);
       }
 
       /* ---------- §04 CÓDIGOS ---------- */
@@ -1486,7 +1501,10 @@
           border-radius: 50%;
           background: var(--ink-faint);
           cursor: pointer;
-          transition: background 0.2s ease, width 0.2s ease, border-radius 0.2s ease;
+          transition:
+            background 0.2s ease,
+            width 0.2s ease,
+            border-radius 0.2s ease;
         }
         .vid-dot.active {
           background: var(--red);
@@ -1666,36 +1684,83 @@
 
     <!-- Structured data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Maximiliano Tairik Román",
-      "alternateName": "Tairik",
-      "jobTitle": "Prensa · Explainer · Host",
-      "url": "https://CHANGE-ME.vercel.app/",
-      "image": "https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg",
-      "email": "t4irik@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Santiago",
-        "addressCountry": "CL"
-      },
-      "worksFor": {
-        "@type": "Organization",
-        "name": "ShishiGang Records",
-        "url": "https://shisi.news"
-      },
-      "sameAs": [
-        "https://instagram.com/t4irik",
-        "https://tiktok.com/@t4irik",
-        "https://youtube.com/@t4irik",
-        "https://kick.com/t4irik"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Maximiliano Tairik Román",
+        "alternateName": "Tairik",
+        "jobTitle": "Prensa · Explainer · Host",
+        "url": "https://CHANGE-ME.vercel.app/",
+        "image": "https://CHANGE-ME.vercel.app/assets/tairik-hero.jpg",
+        "email": "t4irik@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santiago",
+          "addressCountry": "CL"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ShishiGang Records",
+          "url": "https://shishi.news"
+        },
+        "sameAs": [
+          "https://instagram.com/t4irik",
+          "https://tiktok.com/@t4irik",
+          "https://youtube.com/@t4irik",
+          "https://kick.com/t4irik"
+        ]
+      }
     </script>
   </head>
   <body data-screen-label="Tairik — Personal page">
     <div class="grain" aria-hidden="true"></div>
+
+    <style>
+      /* Center hero-stats and responsive layout */
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .hero-stats .cell {
+        text-align: center;
+        min-width: 140px;
+      }
+
+      @media (max-width: 720px) {
+        .hero-stats {
+          gap: 12px;
+          margin-top: 12px;
+        }
+        .hero-stats .cell {
+          min-width: 100px;
+        }
+      }
+
+      /* Tweak live badge appearance */
+      .livebadge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(208, 0, 0, 0.06);
+        color: #d00;
+        font-weight: 700;
+      }
+
+      .livebadge .dot {
+        width: 8px;
+        height: 8px;
+        background: #d00;
+        border-radius: 50%;
+        display: inline-block;
+      }
+    </style>
 
     <!-- ╔═══════════════════════════════════════════════╗
      ║  TOP BROADCAST BAR                            ║
@@ -1703,7 +1768,7 @@
     <header class="bar" role="banner">
       <div class="bar-row">
         <div class="bar-left">
-          <span class="live"><span class="dot"></span> SHISI.NEWS</span>
+          <span class="live"><span class="dot"></span> SHISHI.NEWS</span>
           <span class="sep">/</span>
           <span>DOSIER · 001</span>
         </div>
@@ -1721,16 +1786,13 @@
     </header>
 
     <main>
-      <!-- ╔═══════════════════════════════════════════════╗
-     ║  HERO                                         ║
-     ╚═══════════════════════════════════════════════╝ -->
       <section class="hero" aria-label="Tairik">
         <div class="wrap">
           <div class="hero-grid">
             <div class="hero-meta">
-              <div class="livebadge" aria-label="En vivo en shisi.news">
+              <div class="livebadge" aria-label="En vivo">
                 <span class="dot" aria-hidden="true"></span>
-                <span>SHISI.NEWS · <b>EN VIVO</b></span>
+                <span><b>EN VIVO</b></span>
               </div>
 
               <div class="namewrap">
@@ -1756,11 +1818,6 @@
                   <span class="v">SCL</span>
                   <span class="s">Santiago · Chile</span>
                 </div>
-                <div class="cell">
-                  <span class="k">Casa</span>
-                  <span class="v">SHISI</span>
-                  <span class="s">ShishiGang Records</span>
-                </div>
               </div>
             </div>
 
@@ -1768,7 +1825,15 @@
               <div class="hero-photo" role="img" aria-label="Retrato de Tairik">
                 <span class="photo-corner" aria-hidden="true"></span>
                 <span class="photo-corner br" aria-hidden="true"></span>
-                <img src="assets/tairik-hero.jpg" alt="Retrato de Tairik (Maximiliano Román)" width="1000" height="1250" loading="eager" fetchpriority="high" decoding="async" />
+                <img
+                  src="assets/tairik-hero.jpg"
+                  alt="Retrato de Tairik (Maximiliano Román)"
+                  width="1000"
+                  height="1250"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                />
               </div>
             </div>
 
@@ -1803,8 +1868,8 @@
           <div class="portfolio">
             <div>
               <p class="lede">
-                La cara visible de <span class="mark">shisi.news</span>, el
-                noticiero oficial de
+                Uno de los rostros visibles de
+                <span class="mark">shishi.news</span>, el noticiero oficial de
                 <em>ShishiGang Records / Pablo&nbsp;Chill-E</em>. Prensa que
                 entiende la calle porque viene de ella.
               </p>
@@ -1813,10 +1878,10 @@
             <div class="portfolio-body">
               <p>
                 <strong>Tairik</strong> es prensa urbana y host. Cubre
-                lanzamientos, entrevistas, batallas, eventos y la trastienda del
-                trap chileno con un código que el medio tradicional no tiene: el
-                de adentro. No es periodismo blanco con barniz urbano — es la
-                voz que la escena ya escucha.
+                lanzamientos, entrevistas, eventos y la trastienda del trap y
+                reggaeton chileno con un código que el medio tradicional no
+                tiene: el de adentro. No es periodismo blanco con barniz urbano
+                — es la voz que la escena ya escucha.
               </p>
               <p>
                 Para marcas, esto se traduce en algo concreto:
@@ -1829,11 +1894,13 @@
               <div class="facts">
                 <div class="row">
                   <span class="k">Rol</span
-                  ><span class="v">Prensa · Explainer · Host</span>
+                  ><span class="v"
+                    >Prensa · Explainer · Host · Influencer
+                  </span>
                 </div>
                 <div class="row">
                   <span class="k">Medio</span
-                  ><span class="v">shisi.news — ShishiGang Records</span>
+                  ><span class="v">shishi.news — ShishiGang Records</span>
                 </div>
                 <div class="row">
                   <span class="k">Base</span
@@ -1841,13 +1908,11 @@
                 </div>
                 <div class="row">
                   <span class="k">Cobertura</span
-                  ><span class="v"
-                    >Eventos, batallas, entrevistas, lanzamientos</span
-                  >
+                  ><span class="v">Eventos, entrevistas, lanzamientos</span>
                 </div>
                 <div class="row">
                   <span class="k">Audiencia</span
-                  ><span class="v">Trap / urbano</span>
+                  ><span class="v">Música urbana nacional</span>
                 </div>
               </div>
             </div>
@@ -2125,170 +2190,47 @@
       </section>
 
       <!-- ╔═══════════════════════════════════════════════╗
-     ║  §03 COLABORACIONES                           ║
+     ║  §03 DUPLA — mención honorífica                ║
      ╚═══════════════════════════════════════════════╝ -->
-      <section id="colaboraciones">
+      <section id="dupla">
         <div class="wrap">
           <div class="section-head">
             <div class="num">§ 03</div>
-            <h2>COLABORACIONES</h2>
+            <h2>DUPLA</h2>
             <div class="right">
-              <span class="label">CATÁLOGO · PRECIOS POR FORMATO</span>
-              <span class="label dim">CLP · VIGENCIA 2026</span>
+              <span class="label">TAIRIK × KEVGUTE</span>
+              <span class="label dim">CRÉDITO COMPARTIDO · DOSIER</span>
             </div>
           </div>
 
-          <div class="svc-intro">
-            <p>
-              Cinco formatos definidos para marcas. Precio por colaboración, con
-              derechos de uso, plazos y entregables explícitos. Combos
-              disponibles a pedido.
-            </p>
-            <p class="label dim" style="align-self: flex-end">
-              Valores netos · pago 50/50
-            </p>
-          </div>
+          <div class="dupla">
+            <figure class="dupla-photo">
+              <span class="photo-corner" aria-hidden="true"></span>
+              <span class="photo-corner br" aria-hidden="true"></span>
+              <img
+                src="assets/colab-gute.jpg"
+                alt="Tairik junto a Kevgute en cobertura"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="dupla-caption">REGISTRO · DUPLA EN ACCIÓN</figcaption>
+            </figure>
 
-          <div class="ratecard" role="list">
-            <article class="svc" role="listitem">
-              <span class="idx">01 /</span>
-              <div class="body">
-                <h3 class="ttl">Mención en formato</h3>
-                <p class="desc">
-                  Aparición orgánica de marca dentro de un video propio (TikTok
-                  / Reels). Integración natural en el guión, no interrumpe el
-                  formato.
-                </p>
-                <div class="meta">
-                  <span class="chip">9:16</span>
-                  <span class="chip">15–45s</span>
-                  <span class="chip">1 revisión</span>
-                  <span class="chip">Cesión orgánica 30d</span>
-                </div>
-              </div>
-              <div class="price">
-                <span class="amt">CLP 250.000</span>
-                <span class="unit">/ pieza</span>
-              </div>
-            </article>
-
-            <article class="svc" role="listitem">
-              <span class="idx">02 /</span>
-              <div class="body">
-                <h3 class="ttl">Video dedicado</h3>
-                <p class="desc">
-                  Pieza completa de marca con concepto, guión y producción. Una
-                  historia, una marca. Publicación cruzada en TikTok +
-                  Instagram.
-                </p>
-                <div class="meta">
-                  <span class="chip">9:16</span>
-                  <span class="chip">45–90s</span>
-                  <span class="chip">2 revisiones</span>
-                  <span class="chip">TikTok + IG</span>
-                  <span class="chip">Cesión 60d</span>
-                </div>
-              </div>
-              <div class="price">
-                <span class="amt">CLP 650.000</span>
-                <span class="unit">/ pieza</span>
-              </div>
-            </article>
-
-            <article class="svc" role="listitem">
-              <span class="idx">03 /</span>
-              <div class="body">
-                <h3 class="ttl">Entrevista patrocinada</h3>
-                <p class="desc">
-                  Pieza larga en YouTube con presencia de marca al aire:
-                  bumpers, mención de host, lower-third y CTA final. Brand-safe,
-                  código de prensa.
-                </p>
-                <div class="meta">
-                  <span class="chip">16:9</span>
-                  <span class="chip">10–25min</span>
-                  <span class="chip">YouTube</span>
-                  <span class="chip">Bumper + CTA</span>
-                  <span class="chip">Cesión 90d</span>
-                </div>
-              </div>
-              <div class="price">
-                <span class="amt">CLP 1.200.000</span>
-                <span class="unit">/ episodio</span>
-              </div>
-            </article>
-
-            <article class="svc" role="listitem">
-              <span class="idx">04 /</span>
-              <div class="body">
-                <h3 class="ttl">Cobertura de evento</h3>
-                <p class="desc">
-                  Tairik presente como prensa en tu evento. Entrevistas
-                  backstage, color en cámara, post-event recap en formato 9:16.
-                  Equipo y micrófono brandeable a pedido.
-                </p>
-                <div class="meta">
-                  <span class="chip">On-site SCL</span>
-                  <span class="chip">≤ 6 hrs</span>
-                  <span class="chip">Recap 9:16</span>
-                  <span class="chip">Stories en vivo</span>
-                </div>
-              </div>
-              <div class="price">
-                <span class="amt">CLP 900.000</span>
-                <span class="unit">/ jornada</span>
-              </div>
-            </article>
-
-            <article class="svc" role="listitem">
-              <span class="idx">05 /</span>
-              <div class="body">
-                <h3 class="ttl">Host / Animación</h3>
-                <p class="desc">
-                  Conducción en vivo de tu evento o activación. Experiencia
-                  comprobada en batallas, freestyle, urbano. Voz, presencia y
-                  manejo de público.
-                </p>
-                <div class="meta">
-                  <span class="chip">On-site SCL</span>
-                  <span class="chip">≤ 4 hrs</span>
-                  <span class="chip">Guión a medida</span>
-                </div>
-              </div>
-              <div class="price">
-                <span class="amt">CLP 700.000</span>
-                <span class="unit">/ evento</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="svc-note">
-            <div class="row">
-              <b>Combo</b
-              ><span
-                >Dedicado + Mención + Entrevista = -15% sobre suma total.</span
-              >
-            </div>
-            <div class="row">
-              <b>Producción</b
-              ><span
-                >Edición, guión y cámara incluidos. Insumos de marca a cargo del
-                cliente.</span
-              >
-            </div>
-            <div class="row">
-              <b>Cesión</b
-              ><span
-                >Uso en redes orgánicas dentro del plazo indicado. Paid media se
-                cotiza aparte.</span
-              >
-            </div>
-            <div class="row">
-              <b>Cancelación</b
-              ><span
-                >Hasta 72h antes del rodaje sin costo. Después del rodaje no
-                aplica reembolso.</span
-              >
+            <div class="dupla-body">
+              <span class="dupla-kicker">MENCIÓN · CO-AUTORÍA</span>
+              <h3 class="dupla-name">
+                <a href="https://instagram.com/kevgute" target="_blank" rel="noopener">KEVGUTE<span class="dupla-arrow" aria-hidden="true">↗</span></a>
+              </h3>
+              <p class="dupla-text">
+                Buena parte del lenguaje visual de <strong>shishi.news</strong> — la cámara, el corte, la mirada de calle — es trabajo en dupla con
+                <a href="https://instagram.com/kevgute" target="_blank" rel="noopener">@kevgute</a>.
+                Compañero de ruta en eventos, entrevistas y formato. Cuando ves cobertura del trap chileno con código urbano y oficio de prensa, hay dos cabezas detrás.
+              </p>
+              <p class="dupla-attribution">
+                <span>CO-AUTOR DE LO QUE VES ACÁ.</span>
+                <span class="dupla-attribution-sep">/</span>
+                <span>SANTIAGO · CL</span>
+              </p>
             </div>
           </div>
         </div>
@@ -2403,9 +2345,11 @@
               <div class="booking-head">
                 <h3 class="ttl">¿Me quieres en tu marca?</h3>
                 <p>
-                  Gestiono mi propio booking — sin agencias, sin intermediarios,
-                  sin rodeos. Si me querés para una collab, evento o prensa,
-                  escríbeme directo. Decime qué tenés en mente y lo armamos.
+                  No hay rate card pública: cada colaboración se diseña a
+                  medida. Formato, alcance, derechos de uso y tarifa se
+                  conversan caso a caso. Gestiono mi propio booking — sin
+                  agencias, sin intermediarios, sin rodeos. Escríbeme directo,
+                  dime qué tienes en mente y lo armamos.
                 </p>
               </div>
 
@@ -2449,13 +2393,7 @@
                 </div>
                 <div class="row">
                   <span class="k">Disponibilidad</span
-                  ><span class="v">SCL · Viajes a pedido</span>
-                </div>
-                <div class="row">
-                  <span class="k">Pago</span
-                  ><span class="v"
-                    >Transferencia · 50% adelanto · 50% entrega</span
-                  >
+                  ><span class="v">SCL · Viajes acordables</span>
                 </div>
               </div>
             </div>
@@ -2519,7 +2457,6 @@
                   <span class="arr">↗</span>
                 </a>
               </div>
-
             </div>
           </div>
         </div>
@@ -2533,7 +2470,12 @@
       <div class="wrap">
         <div class="foot">
           <span>FIN DEL DOSIER · 06 / 06</span>
-          <span class="sig">TAIRIK.CL · MANAGED BY <a href="https://www.showup.lat" target="_blank" rel="noopener"><b>SHOWUP</b></a></span>
+          <span class="sig"
+            >TAIRIK.CL · MANAGED BY
+            <a href="https://www.showup.lat" target="_blank" rel="noopener"
+              ><b>SHOWUP</b></a
+            ></span
+          >
           <span>© <span id="yr"></span> · TAIRIK</span>
         </div>
       </div>
