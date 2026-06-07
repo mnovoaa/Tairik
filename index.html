@@ -76,7 +76,7 @@
         /* type */
         --ink: #ece7dc;
         --ink-dim: #a8a294;
-        --ink-mute: #6a655b;
+        --ink-mute: #8d8578;
         --ink-faint: #403c34;
         /* single accent */
         --red: #b3261e;
@@ -358,7 +358,7 @@
         animation: pulse 1.6s ease-out infinite;
       }
       .livebadge b {
-        color: var(--red);
+        color: var(--ink);
         font-weight: 600;
       }
 
@@ -1187,7 +1187,7 @@
         font-family: var(--display);
         font-size: clamp(48px, 7vw, 84px);
         letter-spacing: 0.06em;
-        color: var(--red);
+        color: var(--red-ink);
         line-height: 1;
       }
       .code-token .copy {
@@ -1814,17 +1814,17 @@
       <div class="bar-row">
         <div class="bar-left">
           <span class="live"><span class="dot"></span> SHISHI.NEWS</span>
-          <span class="sep">/</span>
+          <span class="sep" aria-hidden="true">/</span>
           <span>DOSIER · 001</span>
         </div>
         <div class="bar-center">
           <span class="sn">MAXIMILIANO ROMÁN</span>
-          <span class="sep">·</span>
+          <span class="sep" aria-hidden="true">·</span>
           <span>PRENSA URBANA</span>
         </div>
         <div class="bar-right">
           <span id="tc">--:--:--</span>
-          <span class="sep">·</span>
+          <span class="sep" aria-hidden="true">·</span>
           <span>SCL</span>
         </div>
       </div>
@@ -1852,9 +1852,9 @@
               </div>
 
               <div class="role-row" aria-label="Rol">
-                <b>PRENSA</b><span class="sep">·</span> <b>EXPLAINER</b
-                ><span class="sep">·</span> <b>HOST</b
-                ><span class="sep">·</span> <b>INFLUENCER</b>
+                <b>PRENSA</b><span class="sep" aria-hidden="true">·</span> <b>EXPLAINER</b
+                ><span class="sep" aria-hidden="true">·</span> <b>HOST</b
+                ><span class="sep" aria-hidden="true">·</span> <b>INFLUENCER</b>
               </div>
 
               <div class="hero-stats" aria-label="Resumen">
@@ -1997,18 +1997,20 @@
 
             <div class="portfolio-body">
               <p>
-                <strong>Tairik</strong> es prensa urbana y host. Cubre
-                lanzamientos, entrevistas, eventos y la trastienda del trap y
-                reggaeton chileno con un código que el medio tradicional no
-                tiene: el de adentro. No es periodismo blanco con barniz urbano
-                — es la voz que la escena ya escucha.
+                <strong>Tairik</strong> es un creador de contenido enfocado
+                principalmente en el género urbano chileno, desarrollando videos
+                explicativos, entrevistas y diversos formatos audiovisuales. Su
+                estilo, caracterizado por un lenguaje cercano y coloquial, le ha
+                permitido construir una conexión genuina con su audiencia.
               </p>
               <p>
-                Para marcas, esto se traduce en algo concreto:
-                <strong>acceso, credibilidad y velocidad</strong>. Llega a
-                entrevistas que nadie más consigue, explica codigos, contextos y
-                jergas sin perder rigor, y construye narrativa de marca en
-                formatos que la audiencia ya consume.
+                Para las marcas, esto se traduce en un valor concreto:
+                <strong>credibilidad, cercanía y versatilidad
+                comunicacional</strong>. A pesar de su corta trayectoria en la
+                industria, ha logrado entrevistar a importantes artistas tanto
+                nacionales como internacionales, generando conversaciones
+                auténticas donde los artistas reflejan confianza gracias a un
+                formato espontáneo y natural.
               </p>
 
               <div class="facts">
@@ -2365,7 +2367,7 @@
               </p>
               <p class="dupla-attribution">
                 <span>CO-AUTOR DE LO QUE VES ACÁ.</span>
-                <span class="dupla-attribution-sep">/</span>
+                <span class="dupla-attribution-sep" aria-hidden="true">/</span>
                 <span>SANTIAGO · CL</span>
               </p>
             </div>
@@ -2492,9 +2494,10 @@
               <div class="cta-row">
                 <a
                   class="btn btn-primary"
+                  id="email-primary"
                   href="mailto:t4irik@gmail.com?subject=Booking%20%E2%80%94%20Tairik%20colaboraci%C3%B3n"
                 >
-                  <span>t4irik@gmail.com</span>
+                  <span id="email-primary-lbl">t4irik@gmail.com</span>
                   <span class="arr">→</span>
                 </a>
                 <button
@@ -2703,7 +2706,7 @@
 
           const dots = document.createElement("div");
           dots.className = "vid-dots";
-          dots.setAttribute("role", "tablist");
+          dots.setAttribute("role", "group");
           dots.setAttribute("aria-label", "Navegación de videos");
 
           cards.forEach((card, i) => {
@@ -2767,6 +2770,26 @@
               lbl.textContent = old;
             }, 1400);
           } catch (e) {}
+        });
+      })();
+
+      // Email primario (mailto) — copia siempre como fallback para PC sin cliente
+      (function () {
+        const btn = document.getElementById("email-primary");
+        const lbl = document.getElementById("email-primary-lbl");
+        if (!btn || !lbl) return;
+        let resetting = 0;
+        btn.addEventListener("click", () => {
+          // No bloqueamos el mailto: si hay cliente configurado, abre igual.
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText("t4irik@gmail.com").catch(() => {});
+          }
+          const old = "t4irik@gmail.com";
+          lbl.textContent = "✓ EMAIL COPIADO";
+          clearTimeout(resetting);
+          resetting = setTimeout(() => {
+            lbl.textContent = old;
+          }, 1600);
         });
       })();
     </script>
