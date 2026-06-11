@@ -1,4 +1,21 @@
-# Tairik · Personal Page
+<p align="center">
+  <img src="assets/preview.webp" alt="Sitio de TAIRIK" width="840">
+</p>
+
+<h1 align="center">TAIRIK</h1>
+<p align="center"><b>Sitio editorial one-pager · by ShowUp</b></p>
+<p align="center"><a href="https://t4irik.cl"><b>🔗 t4irik.cl</b></a></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/Canvas-cuenta%20regresiva-000000">
+  <img src="https://img.shields.io/badge/Vercel-deploy-000000?logo=vercel">
+</p>
+
+> Estética dossier con portada "DOSIER · 001", contador en vivo y partículas en canvas. Sin
+> frameworks: un solo archivo, máximo rendimiento.
+
+---
 
 Sitio one-pager de **Tairik (Maximiliano Román)** — prensa, explainer y host de [shisi.news](https://shisi.news).
 
