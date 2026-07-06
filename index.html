@@ -1772,7 +1772,12 @@
       }
       body:not(.locked) #countdown-overlay {
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
+        /* la visibility espera a que termine el fade-out del overlay */
+        transition:
+          opacity 1.6s cubic-bezier(0.65, 0, 0.35, 1),
+          visibility 0s linear 1.6s;
       }
       /* grain propio del overlay → mismo material que el sitio */
       #countdown-overlay::before {
@@ -1985,7 +1990,26 @@
       }
     </script>
   </head>
-  <body class="locked" data-screen-label="Tairik — Personal page">
+  <body data-screen-label="Tairik — Personal page">
+    <!-- ===== § 00 · GATE — configuración ============================
+         Countdown de lanzamiento (overlay "PRE-TRANSMISIÓN").
+         Para reutilizarlo en un próximo evento:
+           1) GATE_ENABLED = true
+           2) GATE_TARGET  = fecha ISO con offset de Chile explícito,
+              ej. "2026-09-15T21:00:00-03:00" (¡ojo con el cambio de hora!)
+         Con el gate apagado (o la fecha ya pasada) el sitio carga normal,
+         sin destello del overlay. ============================== -->
+    <script>
+      window.GATE_ENABLED = false;
+      window.GATE_TARGET = "2026-06-09T21:00:00-04:00";
+      // Decisión sincrónica antes del primer render: el body solo se
+      // bloquea si el gate está activo y la fecha aún no llega.
+      (function () {
+        if (!window.GATE_ENABLED) return;
+        if (new Date(window.GATE_TARGET).getTime() <= Date.now()) return;
+        document.body.classList.add("locked");
+      })();
+    </script>
     <!-- ===== contenido del sitio (envuelto para el gate § 00) ===== -->
     <div id="site-content">
     <div class="grain" aria-hidden="true"></div>
@@ -3067,11 +3091,14 @@
 
     <script>
       // ===== § 00 · PRE-TRANSMISIÓN — countdown gate =====
+      // La configuración (GATE_ENABLED / GATE_TARGET) vive al inicio del
+      // <body>, donde se decide sincrónicamente si el sitio parte bloqueado.
       (function () {
-        // TARGET del go-live. El offset -04:00 (Chile continental) va EXPLÍCITO
-        // en el ISO string: NO depende de la hora local del navegador.
-        // Go-live: martes 2026-06-09, 21:00 hora Chile continental.
-        const TARGET = new Date("2026-06-09T21:00:00-04:00").getTime();
+        // Si el gate no bloqueó el body (apagado o fecha pasada), no hay
+        // nada que contar: el overlay ya quedó oculto por CSS.
+        if (!document.body.classList.contains("locked")) return;
+
+        const TARGET = new Date(window.GATE_TARGET).getTime();
 
         const body = document.body;
         const overlay = document.getElementById("countdown-overlay");
