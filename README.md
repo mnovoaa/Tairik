@@ -73,19 +73,15 @@ vercel --prod # Producción
 3. Build/Output: dejar vacío (no necesita build).
 4. Deploy.
 
-### Post-deploy (cuando tengas la URL real)
+### URL canónica
 
-Hay 6 placeholders `CHANGE-ME.vercel.app` en `index.html` (canonical, OG, Twitter, JSON-LD). Reemplazá todos con la URL real:
+Todas las URLs absolutas de `index.html` (canonical, OG, Twitter, JSON-LD), `robots.txt` y
+`sitemap.xml` apuntan al dominio final **https://www.t4irik.cl**. Si el dominio cambia, reemplazar
+en los tres archivos:
 
-```bash
-# macOS/Linux
-sed -i '' 's|CHANGE-ME.vercel.app|tu-url.vercel.app|g' index.html
-
-# Windows PowerShell
-(Get-Content index.html) -replace 'CHANGE-ME.vercel.app','tu-url.vercel.app' | Set-Content index.html
+```powershell
+(Get-Content index.html) -replace 'www\.t4irik\.cl','dominio-nuevo.cl' | Set-Content index.html
 ```
-
-Cuando agreges dominio custom (ej. `tairik.cl`), volvé a correr el reemplazo apuntando al dominio final.
 
 ## Reemplazar/agregar videos
 
